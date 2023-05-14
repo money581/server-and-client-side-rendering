@@ -1,5 +1,6 @@
 const path = require('path');
 
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -13,13 +14,24 @@ app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
-db.execute('SELECT * FROM products').then(result=>{console.log(result);}).catch(err=>{console.log(err);});
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
+// app.get('/delete',function(req,res){
+//     con.connect(function(error){
+//         if(error) console.log(error);
+//         var sql="delete from products where id=?";
+//         var id=req.query.id;
+//         con.query(sql,[id],function(error,result){
+//             if(error) console.log(error);
+//             res.redirect('/products')
+//         })
+//     })
+// })
 
 app.use(errorController.get404);
 
