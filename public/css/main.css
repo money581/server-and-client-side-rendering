@@ -95,6 +95,7 @@ form {
   padding: 0.5rem 2rem;
 }
 
+
 .mobile-nav__item a:active,
 .mobile-nav__item a:hover,
 .mobile-nav__item a.active {
@@ -204,4 +205,10 @@ form {
 }
 .centered{
   text-align: center;
+}
+.image{
+  height: 20rem;
+}
+.image img {
+height: 100%;
 }
